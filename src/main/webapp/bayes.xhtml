@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>User Page</title>
+</h:head>
+<h:body style="padding:20px">
+    <h:form>
+        <h:commandButton value="Get me back" action="#{navigationService.goToMain}" />
+    </h:form>
+    <h1>Bayesian Filtering Settings</h1>
+    <h4>System have <h:outputText id="alreadyLearnEmailsPattern" value="#{bayessService.bayes.getCategoriesTotal()}" /> spam examples in memory.</h4>
+
+    <p:panelGrid>
+        <p:row>
+            Learn your bayesian algorithm
+            <p:column>
+                Choose file with predefined spam pattern email:
+                <h:form enctype="multipart/form-data">
+                    <p:growl autoUpdate="true"/>
+                    <p:fileUpload fileUploadListener="#{bayessViewService.handleLearnNewFileUpload}" label="Choose File"
+                                  uploadLabel="Learn new pattern" value="#{bayessViewService.file}" mode="advanced"
+                                  update=":alreadyLearnEmailsPattern" allowTypes="/(\.|\/)(txt)$/" />
+                </h:form>
+            </p:column>
+            <p:column>
+                Test if selected file is spam.
+                <h:form enctype="multipart/form-data">
+                    <p:growl autoUpdate="true"/>
+                    <p:fileUpload fileUploadListener="#{bayessViewService.handleLearnNewFileUpload}" label="Choose File"
+                                  uploadLabel="Test selected pattern" value="#{bayessViewService.file}" mode="advanced"
+                                  update=":alreadyLearnEmailsPattern" allowTypes="/(\.|\/)(txt)$/" />
+                </h:form>
+            </p:column>
+            <p:column>
+
+            </p:column>
+        </p:row>
+    </p:panelGrid>
+</h:body>
+</html>
