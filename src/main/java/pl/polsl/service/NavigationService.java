@@ -13,4 +13,8 @@ public class NavigationService {
         return "bayes";
     }
 
+    public String goToMessage() {
+        return "message";
+    }
+
 }

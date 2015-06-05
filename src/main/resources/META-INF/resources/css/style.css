@@ -1,0 +1,14 @@
+body {
+    background-image: url("../javax.faces.resource/background.jpg.xhtml?ln=image");
+}
+
+.layout {
+    opacity: 0.9;
+}
+
+.logo {
+    max-height: 100px;
+    max-width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}

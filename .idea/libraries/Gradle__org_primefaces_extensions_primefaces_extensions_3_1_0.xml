@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.primefaces.extensions:primefaces-extensions:3.1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.primefaces.extensions/primefaces-extensions/3.1.0/17e345f037bd7812b5098ae1572b9242ec0dd9f0/primefaces-extensions-3.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.primefaces.extensions/primefaces-extensions/3.1.0/624dd1d6019fe7d176fd56fcd018e12043f13fea/primefaces-extensions-3.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

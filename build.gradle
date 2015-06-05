@@ -47,7 +47,7 @@ dependencies {
 
     compile 'org.primefaces:primefaces:5.2'
     compile 'org.primefaces.extensions:primefaces-extensions:3.1.0'
-    compile 'org.primefaces.extensions:all-themes:1.0.8'
+    compile 'org.primefaces.extensions:all-themes:1.0.10'
 
     compile 'commons-io:commons-io:2.2'
     compile 'commons-fileupload:commons-fileupload:1.3'

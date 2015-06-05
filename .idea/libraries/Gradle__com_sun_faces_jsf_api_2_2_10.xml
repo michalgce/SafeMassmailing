@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.sun.faces:jsf-api:2.2.10">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.faces/jsf-api/2.2.10/7c09bb66e7dea101d79c6e0a0cd6c0a3bd0fab3d/jsf-api-2.2.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.faces/jsf-api/2.2.10/bfc7f39ae2e59a42adcbc163ea0a300a5dfc1658/jsf-api-2.2.10-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

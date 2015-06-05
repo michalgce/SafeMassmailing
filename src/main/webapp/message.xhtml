@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Welcome in safty mass mailing system.</title>
+</h:head>
+<h:body style="padding:20px">
+    <h:form>
+        <h:commandButton value="Get me back" action="#{navigationService.goToMain}" />
+    </h:form>
+    <h1>Mass mailing system</h1>
+    <br />
+    <h:form>
+        <p:editor id="editor" widgetVar="editorWidget" value="#{messageService.text}" width="600" />
+
+        <h:panelGrid columns="2" style="margin-top: 10px">
+            <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" />
+
+            <p:commandButton value="Clear" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
+        </h:panelGrid>
+
+        <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+            <h:outputText id="display" value="#{messageService.text}" escape="false" />
+        </p:dialog>    </h:form>
+    <br />
+</h:body>
+</html>
