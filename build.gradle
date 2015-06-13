@@ -4,6 +4,9 @@ buildscript {
     }
     repositories {
         mavenCentral()
+        maven {
+            url "http://repository.primefaces.org"
+        }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 

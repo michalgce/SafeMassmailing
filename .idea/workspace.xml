@@ -2,45 +2,193 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="486297c3-45f9-4a64-8d88-7a93afee76ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/image/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/converter/GroupConverter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/dao/GroupDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/service/GroupService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/entity/Groups.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/entity/SMTPConfiguration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/dao/SMTPConfigurationDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/dto/SpamAssassinOptions.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/dto/SpamAssassinRequestDto.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/dto/SpamAssassinResponseDto.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/service/SpamAssassinService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/entity/Subscriber.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/converter/SubscriberConverter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/dao/SubscriberDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/service/SubscriberService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/css/bootstrap-rtl.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/css/bootstrap-rtl.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/groups.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/css/sb-admin-rtl.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/css/sb-admin.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/smtp-conf.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/spam-assassin.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/subscribers.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/controller/MailingErrorController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/controller/MailingErrorController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/MassMailingApplication.java" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/MassMailingApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/service/MessageService.java" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/service/MessageService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/polsl/service/NavigationService.java" afterPath="$PROJECT_DIR$/src/main/java/pl/polsl/service/NavigationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/MassMailingApplication.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/alghorithm/SpamDetection.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/controller/MailingErrorController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/controller/MainController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/converter/GroupConverter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/converter/SubscriberConverter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/dao/GroupDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/dao/SMTPConfigurationDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/dao/SubscriberDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/dto/SpamAssassinOptions.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/dto/SpamAssassinRequestDto.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/dto/SpamAssassinResponseDto.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/entity/Groups.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/entity/SMTPConfiguration.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/entity/Subscriber.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/scope/ViewScope.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/service/GroupService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/service/MessageService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/service/NavigationService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/service/SmtpConfigurationService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/service/SpamAssassinService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/service/SubscriberService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/service/TestService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/service/bayess/BayessService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/service/bayess/BayessViewService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/utils/naive_bayes_classifier/BayesClassifier$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/utils/naive_bayes_classifier/BayesClassifier.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/utils/naive_bayes_classifier/Classification.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/utils/naive_bayes_classifier/Classifier.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/pl/polsl/utils/naive_bayes_classifier/IFeatureProbability.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/pl/polsl/MassMailingApplicationTests.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/css/bootstrap-rtl.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/css/bootstrap-rtl.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/css/bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/css/plugins/morris.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/css/sb-admin-rtl.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/css/sb-admin.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/css/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/css/font-awesome.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/css/font-awesome.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/fonts/FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/bordered-pulled.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/core.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/fixed-width.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/font-awesome.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/icons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/larger.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/list.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/path.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/rotated-flipped.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/spinning.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/stacked.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/less/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/_bordered-pulled.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/_core.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/_fixed-width.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/_icons.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/_larger.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/_list.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/_mixins.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/_path.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/_rotated-flipped.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/_spinning.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/_stacked.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/_variables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/font-awesome/scss/font-awesome.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/image/Mail-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/image/background.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/image/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/js/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/resources/js/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/application.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/import.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/000.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/001.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/002.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/003.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/004.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/005.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/006.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/007.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/008.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/009.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/010.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/011.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/012.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/013.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/014.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/015.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/016.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/017.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/018.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/019.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/020.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/021.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/022.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/023.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/024.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/025.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/026.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/027.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/028.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/029.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/030.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/031.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/032.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/033.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/034.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/035.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/036.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/037.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/038.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/039.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/040.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/041.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/042.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/043.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/044.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/045.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/046.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/047.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/048.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/049.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/050.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/051.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/052.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/053.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/054.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/055.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/056.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/057.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/058.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/059.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/060.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/061.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/062.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/063.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/064.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/065.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/066.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/067.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/068.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/069.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/070.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/071.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/072.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/073.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/074.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/075.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/076.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/077.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/078.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/079.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/080.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/081.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/082.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/083.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/084.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/085.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/086.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/087.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/088.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/089.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/090.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/091.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/092.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/093.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/094.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/spam/095.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/test/1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/test/2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/test/3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/test/4.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/static/test/5.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/templates/template.vm" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mass-mailing.iml" afterPath="$PROJECT_DIR$/mass-mailing.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/message.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/message.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/css/style.css" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mass-mailing.iws" />
@@ -156,18 +304,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-7.5">
               <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SubscriberService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/polsl/service/SubscriberService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="29" selection-start-line="60" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1434188115000" expanded="true" signature="493:2054" placeholder="..." />
+                <marker date="1434188115000" expanded="true" signature="2111:3089" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -236,11 +375,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.xhtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/dashboard.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6375">
+            <state vertical-scroll-proportion="-3.1875">
               <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.19408503">
+              <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -695,7 +844,6 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/polsl/converter/SubsciberConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/polsl/converter/GroupSubscriberConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/polsl/dao/SubscribersGroupDaoImpl.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/pl/polsl/entity/SubscribersGroup.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/polsl/dao/SubscribersGroupDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
@@ -736,6 +884,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/groups.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/dashboard.xhtml" />
+        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
@@ -1562,12 +1711,12 @@
       <workItem from="1433944761011" duration="222000" />
       <workItem from="1434086590495" duration="7899000" />
       <workItem from="1434095003635" duration="14012000" />
-      <workItem from="1434175175859" duration="11549000" />
+      <workItem from="1434175175859" duration="11835000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115017000" />
+    <option name="totallyTimeSpent" value="115303000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1596,10 +1745,10 @@
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15140416" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24969475" sideWeight="0.47403684" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3995272" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3995272" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32799146" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32742316" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38652483" sideWeight="0.497558" order="3" side_tool="false" content_ui="tabs" />
@@ -1653,14 +1802,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.faces/jsf-api/2.2.10/bfc7f39ae2e59a42adcbc163ea0a300a5dfc1658/jsf-api-2.2.10-sources.jar!/javax/faces/component/UIComponentBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="918" column="0" selection-start-line="918" selection-start-column="0" selection-end-line="918" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.primefaces/primefaces/5.2/c41be7026a714be6be5e158e14df764b2cf539cd/primefaces-5.2-sources.jar!/org/primefaces/component/picklist/PickListRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
@@ -2051,7 +2192,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.5">
           <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
-          <folding />
+          <folding>
+            <marker date="1434188115000" expanded="true" signature="493:2054" placeholder="..." />
+            <marker date="1434188115000" expanded="true" signature="2111:3089" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2108,8 +2252,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/dashboard.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6375">
+        <state vertical-scroll-proportion="-3.1875">
           <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19408503">
+          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
           <folding />
         </state>
       </provider>
