@@ -9,6 +9,6 @@ public class MailingErrorController implements ErrorController {
 
     @Override
     public String getErrorPath() {
-        return "/index.xhtml";
+        return "/start2.xhtml";
     }
 }

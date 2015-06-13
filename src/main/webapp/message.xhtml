@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:jsf="http://xmlns.jcp.org/jsf"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-<h:head>
-    <title>Welcome in safty mass mailing system.</title>
-</h:head>
-<h:body style="padding:20px">
-    <h:form>
-        <h:commandButton value="Get me back" action="#{navigationService.goToMain}" />
-    </h:form>
-    <h1>Mass mailing system</h1>
-    <br />
+<ui:composition template="index.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+        >
+<ui:define name="content">
     <h:form>
         <p:editor id="editor" widgetVar="editorWidget" value="#{messageService.text}" width="600" />
 
@@ -23,8 +16,8 @@
         </h:panelGrid>
 
         <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
-            <h:outputText id="display" value="#{messageService.text}" escape="false" />
+            <h:outputText id="display" value="#{messageService.text}" escape="false"  />
         </p:dialog>    </h:form>
     <br />
-</h:body>
-</html>
+</ui:define>
+</ui:composition>

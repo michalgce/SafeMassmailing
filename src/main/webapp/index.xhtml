@@ -5,30 +5,123 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
+
 <h:head>
-    <title>Welcome in safty mass mailing system.</title>
-</h:head>
-<h:body style="padding:20px">
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Safty mass mailing system" />
+    <meta name="author" content="Michał Witkowski" />
+
+    <title>Safty mass mailing system.</title>
+
     <h:outputStylesheet library="css" name="style.css" />
-    <p:layout styleClass="layout" fullPage="true">
-        <p:layoutUnit position="west" size="300" maxSize="300">
-            <h:graphicImage library="image" name="Mail-icon.png" styleClass="logo"/>
-            <br />
-            <h:form>
-                <p:megaMenu orientation="vertical">
-                    <p:menuitem icon="ui-icon-mail-closed" value="Create camapigne" />
-                    <p:menuitem icon="ui-icon-person" value="Manage groups" />
-                    <p:menuitem icon="ui-icon-gear" value="Settings" />
-                </p:megaMenu>
-            </h:form>
-        </p:layoutUnit>
+    <!-- Bootstrap Core CSS -->
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
 
-        <p:layoutUnit position="center">
+    <!-- Custom CSS -->
+    <h:outputStylesheet library="css" name="sb-admin.css" />
+
+
+    <!-- Custom Fonts -->
+    <h:outputStylesheet library="font-awesome" name="css/font-awesome.min.css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</h:head>
+
+<h:body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">SMMS</a>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Michał Witkowski <b class="caret"></b></a>
+            </li>
+        </ul>
+        <!-- Navigation menu -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li class="active">
+                    <a href="dashboard.xhtml"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="message.xhtml"><i class="fa fa-fw fa-bar-chart-o"></i> Create capaigne</a>
+                </li>
+                <li>
+                    <a href="subscribers.xhtml"><i class="fa fa-fw fa-table"></i> Subscibers </a>
+                </li>
+                <li>
+                    <a href="groups.xhtml"><i class="fa fa-fw fa-edit"></i> Manage groups</a>
+                </li>
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Settings <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="demo" class="collapse">
+                        <li>
+                            <a href="#">Basic </a>
+                        </li>
+                        <li>
+                            <a href="smtp-conf.xhtml">SMTP Configurations </a>
+                        </li>
+                        <li>
+                            <a href="bayes.xhtml">Bayess Alghorithm</a>
+                        </li>
+                        <li>
+                            <a href="spam-assassin.xhtml">Spam Assassin</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
             <ui:insert name="content" />
-        </p:layoutUnit>
-    </p:layout>
-    <br />
 
-    <br />
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+->
+
+<!-- Bootstrap Core JavaScript -->
+<h:outputScript library="primefaces" name="jquery/jquery.js" />
+<h:outputScript library="js" name="bootstrap.min.js" />
+
+
 </h:body>
+
 </html>

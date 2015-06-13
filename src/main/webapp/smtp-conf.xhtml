@@ -1,0 +1,59 @@
+<ui:composition template="index.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+        >
+    <ui:define name="content">
+        <p:messages id="msgs" showDetail="true" />
+
+        <p:tabView id="tabView">
+            <p:tab title="1. Create new configuration">
+                <h:form>
+
+                    <h:panelGrid columns="2" cellpadding="5" title="Enter new configuration data.">
+                        <p:outputLabel value="Configuration name" for="inputName" />
+                        <p:inputText id="inputName" value="#{smtpConfigurationService.name}" required="true" requiredMessage="Enter configuration name" />
+
+                        <p:outputLabel value="SMTP Address (IP or HOST)" for="inputAddress" />
+                        <p:inputText id="inputAddress" value="#{smtpConfigurationService.address}" required="true" requiredMessage="Enter SMTP address" />
+
+                        <p:outputLabel value="SMTP PORT" for="inputPort" />
+                        <p:inputMask mask="99?999" id="inputPort" value="#{smtpConfigurationService.port}" required="true" requiredMessage="Enter SMTP port" />
+
+                        <p:outputLabel value="SMTP Username" for="inputUserName" />
+                        <p:inputText id="inputUserName" value="#{smtpConfigurationService.userName}" />
+
+                        <p:outputLabel value="SMTP Password" for="inputPassword" />
+                        <p:password id="inputPassword" value="#{smtpConfigurationService.password}" />
+
+                        <br />
+
+                        <p:commandButton value="Create new SMTP configuration" actionListener="#{smtpConfigurationService.create}"
+                                         update="msgs tabView:smtpConfDataTable" />
+                    </h:panelGrid>
+                </h:form>
+            </p:tab>
+            <p:tab title="2. Edit/Delete configuration">
+                <p:dataTable id="smtpConfDataTable" var="configuration" value="#{smtpConfigurationService.configurations}">
+                    <p:column headerText="Id">
+                        <h:outputText value="#{configuration.id}" />
+                    </p:column>
+                    <p:column headerText="Configuration name">
+                        <h:outputText value="#{configuration.name}" />
+                    </p:column>
+                    <p:column headerText="SMTP Address">
+                        <h:outputText value="#{configuration.address}" />
+                    </p:column>
+                    <p:column headerText="SMTP Address">
+                        <h:outputText value="#{configuration.port}" />
+                    </p:column>
+                    <p:column headerText="SMTP Username">
+                        <h:outputText value="#{configuration.userName}" />
+                    </p:column>
+                </p:dataTable>
+            </p:tab>
+        </p:tabView>
+    </ui:define>
+</ui:composition>

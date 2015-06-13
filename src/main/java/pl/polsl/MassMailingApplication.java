@@ -9,6 +9,7 @@ import org.springframework.boot.context.embedded.ServletContextInitializer;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.DispatcherType;
@@ -16,6 +17,7 @@ import javax.servlet.DispatcherType;
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan
+@EnableJpaRepositories
 public class MassMailingApplication {
 
     public static void main(String[] args) {

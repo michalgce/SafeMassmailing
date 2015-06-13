@@ -1,0 +1,52 @@
+<ui:composition template="index.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+        >
+    <ui:define name="content">
+        <p:messages autoUpdate="true" showDetail="true" closable="true" />
+
+        <p:tabView id="tabView">
+            <p:tab title="Create group">
+                Create new group :
+                <h:form id="groupCreationForm">
+                    <p:panel id="panelCreation">
+                        Group name: <p:inputText id="groupName" value="#{groupService.groupName}" />
+                        <p:commandButton value="Create group" actionListener="#{groupService.createNewGroup}" update="tabView:organiseForm:menu"/>
+                    </p:panel>
+                </h:form>
+            </p:tab>
+            <p:tab title="Organise group members" id="orginiseGroupTab">
+               <p:panel id="orginisePanel">
+                   <h:form id="organiseForm">
+                       Choose group to manage:
+                        <p:selectOneMenu id="menu" value="#{groupService.selectedGroups}" label="Groups"
+                                         filter="true" filterMatchMode="startsWith" converter="#{groupConverter}">
+                            <f:selectItems value="#{groupService.groupses}" var="group" itemLabel="#{group.name}" itemValue="#{group}"/>
+                        </p:selectOneMenu> <br/>
+
+                        <!-- TODO NAPRAWIC !! -->
+                        <p:commandButton id="assignBtn" value="Assign to selected group" actionListener="#{groupService.choiceGroup}"
+                                         icon="fa fa-gears" />
+                    </h:form>
+               </p:panel>
+               <p:panel id="groupAssigner" visible="#{groupService.selectedGroups ne null}"
+                        header="You are editing #{groupService.selectedGroups.name}">
+                   <h:form>
+                       <p:pickList id="subscriberAssigner" value="#{groupService.subscriberDualListModel}"
+                                    var="subscriber" effect="bounce" itemValue="#{subscriber}"
+                                    itemLabel="#{subscriber.firstName} #{subscriber.lastName} - #{subscriber.mail}"
+                                    showSourceControls="true" showTargetControls="true" showCheckbox="true"
+                                    showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains"
+                                    converter="#{subscriberConverter}" rendered="#{groupService.selectedGroups ne null}" />
+                       <br/>
+                       <p:commandButton value="Save transfer" id="saveTransfer" actionListener="#{groupService.saveTransfer}" />
+                   </h:form>
+               </p:panel>
+
+            </p:tab>
+        </p:tabView>
+    </ui:define>
+</ui:composition>

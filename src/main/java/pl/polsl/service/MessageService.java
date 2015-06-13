@@ -2,7 +2,10 @@ package pl.polsl.service;
 
 import org.springframework.stereotype.Service;
 
+import javax.faces.bean.ManagedBean;
+
 @Service
+@ManagedBean
 public class MessageService {
 
     public String text;

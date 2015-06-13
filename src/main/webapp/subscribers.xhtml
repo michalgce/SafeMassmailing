@@ -1,0 +1,45 @@
+<ui:composition template="index.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+        >
+    <ui:define name="content">
+        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+        <p:tabView id="tabView">
+            <p:tab title="Add subscriber">
+                <h:form id="addingSubsciberForm">
+                    <p:panel id="addingPanel" header="Adding subsciber">
+                        First Name: <p:inputText title="First Name" value="#{subscriberService.firstName}" required="true" requiredMessage="Enter first name"/> <br />
+                        Last Name: <p:inputText title="Last Name" value="#{subscriberService.lastName}" required="true" requiredMessage="Enter last name" /> <br />
+                        Mail Address: <p:inputText title="Mail" value="#{subscriberService.mail}" required="true" requiredMessage="Enter mail address" />
+                        <br />
+                    </p:panel>
+                        <p:commandButton value="Add subscriber to DB" actionListener="#{subscriberService.addSubscriber}" update="tabView:subscriberDataTable" />
+
+                        <p:commandButton value="Reset" update="addingPanel" process="@this" actionListener="#{subscriberService.reset}">
+                            <p:resetInput target="addingPanel" />
+                        </p:commandButton>
+                </h:form>
+            </p:tab>
+            <p:tab id="secondTab" title="Edit/Delete subscriber">
+                <p:dataTable id="subscriberDataTable" var="subscriber" value="#{subscriberService.subscribers}">
+                    <p:column headerText="Id">
+                        <h:outputText value="#{subscriber.id}" />
+                    </p:column>
+                    <p:column headerText="First name">
+                        <h:outputText value="#{subscriber.firstName}" />
+                    </p:column>
+                    <p:column headerText="Last name">
+                        <h:outputText value="#{subscriber.lastName}" />
+                    </p:column>
+                    <p:column headerText="Mail">
+                        <h:outputText value="#{subscriber.mail}" />
+                    </p:column>
+                </p:dataTable>
+            </p:tab>
+        </p:tabView>
+    </ui:define>
+</ui:composition>
