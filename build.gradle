@@ -4,9 +4,6 @@ buildscript {
     }
     repositories {
         mavenCentral()
-        maven {
-            url "http://repository.primefaces.org"
-        }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
@@ -18,10 +15,21 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'spring-boot' 
 apply plugin: 'io.spring.dependency-management' 
+apply plugin: 'war'
+
+repositories {
+    maven {
+        url "http://repository.primefaces.org"
+    }
+}
 
 jar {
     baseName = 'massmailing'
     version = '0.0.1-SNAPSHOT'
+}
+
+configurations {
+    providedRuntime
 }
 
 sourceCompatibility = 1.8
@@ -50,7 +58,7 @@ dependencies {
 
     compile 'org.primefaces:primefaces:5.2'
     compile 'org.primefaces.extensions:primefaces-extensions:3.1.0'
-    compile 'org.primefaces.extensions:all-themes:1.0.10'
+    compile 'org.primefaces.themes:bootstrap:1.0.10'
 
     compile 'commons-io:commons-io:2.2'
     compile 'commons-fileupload:commons-fileupload:1.3'
@@ -60,6 +68,8 @@ dependencies {
     compile 'postgresql:postgresql:9.1-901-1.jdbc4'
 
     compile 'com.google.guava:guava:18.0'
+
+    compile 'javax.mail:mail:1.4.1'
 
     testCompile("org.springframework.boot:spring-boot-starter-test") 
 }

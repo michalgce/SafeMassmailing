@@ -21,6 +21,9 @@ public class SMTPConfiguration {
 
     protected String password;
 
+    @Column(unique = true)
+    protected Boolean active;
+
     public Long getId() {
         return id;
     }
@@ -67,5 +70,13 @@ public class SMTPConfiguration {
 
     public void setPassword(final String password) {
         this.password = password;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(final Boolean active) {
+        this.active = active;
     }
 }

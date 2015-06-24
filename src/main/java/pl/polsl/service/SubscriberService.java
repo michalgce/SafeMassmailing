@@ -6,7 +6,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import pl.polsl.dao.SubscriberDao;
 import pl.polsl.entity.Subscriber;
-import sun.plugin.dom.exception.InvalidStateException;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -41,7 +40,7 @@ public class SubscriberService {
     public void addSubscriber() {
         Boolean succes = false;
         if (isEmpty(firstName) || isEmpty(lastName) || isEmpty(mail)) {
-            throw new InvalidStateException("Insert firstname, lastname and mail.");
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Fatal", "Insert firstname, lastname and mail."));
         }
         Subscriber subscriber = new Subscriber(firstName, lastName, mail);
         try {

@@ -40,6 +40,9 @@
                     <p:column headerText="Id">
                         <h:outputText value="#{configuration.id}" />
                     </p:column>
+                    <p:column headerText="Is active">
+                        <h:selectBooleanCheckbox value="#{configuration.active}" disabled="true"/>
+                    </p:column>
                     <p:column headerText="Configuration name">
                         <h:outputText value="#{configuration.name}" />
                     </p:column>

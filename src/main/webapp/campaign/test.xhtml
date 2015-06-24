@@ -1,0 +1,23 @@
+<ui:composition template="../index.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+        >
+<ui:define name="content">
+    <p:steps styleClass="custom" activeIndex="2">
+        <p:menuitem value="Choose groups" />
+        <p:menuitem value="Create message" />
+        <p:menuitem value="Test" />
+        <p:menuitem value="Send message" />
+    </p:steps>
+
+    <h:form>
+
+        <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToMessage}" value="Previous" />
+        <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToSend}" value="Next" />
+    </h:form>
+    <br />
+</ui:define>
+</ui:composition>

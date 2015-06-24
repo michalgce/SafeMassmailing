@@ -9,7 +9,7 @@ public class MainController {
 
     @RequestMapping("/")
     public String index() {
-        return "forward:/index.xhtml";
+        return "forward:/dashboard.xhtml";
     }
 
 }

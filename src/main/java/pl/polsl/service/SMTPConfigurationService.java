@@ -2,6 +2,10 @@ package pl.polsl.service;
 
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 import pl.polsl.dao.SMTPConfigurationDao;
 import pl.polsl.entity.SMTPConfiguration;
@@ -10,6 +14,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import java.util.List;
+import java.util.Properties;
 
 @Service
 @ManagedBean
@@ -43,6 +48,24 @@ public class SmtpConfigurationService {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL,
                     "Fatal", "There was a problem during creating new smtp configuration."));
         }
+
+    }
+
+    @Bean
+    @Scope(value = "prototype")
+    public JavaMailSender getActiveSmtpJavaMailSender() {
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        Properties mailProperties = new Properties();
+        mailProperties.put("mail.smtp.auth", false);
+        mailProperties.put("mail.smtp.starttls.enable", false);
+        mailSender.setJavaMailProperties(mailProperties);
+        mailSender.setHost("localhost");
+        mailSender.setPort(1025);
+        mailSender.setProtocol("smtp");
+        mailSender.setUsername(null);
+        mailSender.setPassword(null);
+
+        return mailSender;
 
     }
 

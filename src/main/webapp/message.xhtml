@@ -6,18 +6,30 @@
                 xmlns:p="http://primefaces.org/ui"
         >
 <ui:define name="content">
-    <h:form>
-        <p:editor id="editor" widgetVar="editorWidget" value="#{messageService.text}" width="600" />
+    <p:steps styleClass="custom" activeIndex="-1">
+        <p:menuitem value="Choose group" />
+        <p:menuitem value="Create message" />
+        <p:menuitem value="Test" />
+        <p:menuitem value="Send message" />
+    </p:steps>
 
-        <h:panelGrid columns="2" style="margin-top: 10px">
-            <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" />
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Process creation campaigne contains from few steps : <br/>
+            <hr />
+            1. Choose group - in this step you have to choose group of receivers<br/>
+            <hr />
+            2. Create message - using WYSIWYG editor prepare your message which will be sent to your audience. <br/>
+            <hr />
+            3. Test - if you would like to avoid spam filter you should prepare your message properly, this step help you verify it
+            <hr />
+            4. Send message - Start sending your message without any limits
+            <hr />
+        </div>
+        <p:button type="button" class="btn btn-success" aria-haspopup="true"
+                         aria-expanded="false" value="Create new campainge" style="margin-left: 20px; margin-bottom: 20px "
+                         href="campaign/groups.xhtml"/>
 
-            <p:commandButton value="Clear" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
-        </h:panelGrid>
-
-        <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
-            <h:outputText id="display" value="#{messageService.text}" escape="false"  />
-        </p:dialog>    </h:form>
-    <br />
+    </div>
 </ui:define>
 </ui:composition>
