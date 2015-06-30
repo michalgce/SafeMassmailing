@@ -12,6 +12,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -103,6 +105,7 @@ public class CampaigneService {
     }
 
     public void send() {
+
         preparedMessage.parallelStream().forEach(javaMailSender::send);
 
         goToSuccess();
@@ -116,6 +119,11 @@ public class CampaigneService {
             mimeMessageHelper.setText(content);
             mimeMessageHelper.setTo(recipient);
         };
+    }
+
+    public MimeMessage prepareMimeMessage(final String title, final String content, final String recipient) {
+        final MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+
     }
 
     public String getTopicMessage() {
