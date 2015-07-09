@@ -14,7 +14,7 @@ public class SMTPConfiguration {
 
     protected String address;
 
-    protected Long port;
+    protected Integer port;
 
     @Column(name = "user_name")
     protected String userName;
@@ -48,11 +48,11 @@ public class SMTPConfiguration {
         this.address = address;
     }
 
-    public Long getPort() {
+    public Integer getPort() {
         return port;
     }
 
-    public void setPort(final Long port) {
+    public void setPort(final Integer port) {
         this.port = port;
     }
 

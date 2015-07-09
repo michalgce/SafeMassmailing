@@ -69,7 +69,6 @@ public class SubscriberService {
         mail = null;
     }
 
-    /* Getters and setters */
     public List<Subscriber> getSubscribers() {
         return subscribers;
     }

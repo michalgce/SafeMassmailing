@@ -2,30 +2,29 @@ package pl.polsl.service;
 
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Scope;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 import pl.polsl.dao.SMTPConfigurationDao;
+import pl.polsl.dao.SubscriberDao;
 import pl.polsl.entity.SMTPConfiguration;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import java.util.List;
-import java.util.Properties;
 
 @Service
 @ManagedBean
-public class SmtpConfigurationService {
+public class SMTPConfigurationService {
 
     @Autowired
     protected SMTPConfigurationDao smtpConfigurationDao;
 
+    @Autowired
+    protected SubscriberDao subscriberDao;
+
     public String name;
     public String address;
-    public Long port;
+    public Integer port;
     public String userName;
     public String password;
 
@@ -51,24 +50,6 @@ public class SmtpConfigurationService {
 
     }
 
-    @Bean
-    @Scope(value = "prototype")
-    public JavaMailSender getActiveSmtpJavaMailSender() {
-        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        Properties mailProperties = new Properties();
-        mailProperties.put("mail.smtp.auth", false);
-        mailProperties.put("mail.smtp.starttls.enable", false);
-        mailSender.setJavaMailProperties(mailProperties);
-        mailSender.setHost("localhost");
-        mailSender.setPort(1025);
-        mailSender.setProtocol("smtp");
-        mailSender.setUsername(null);
-        mailSender.setPassword(null);
-
-        return mailSender;
-
-    }
-
     public String getPassword() {
         return password;
     }
@@ -85,11 +66,11 @@ public class SmtpConfigurationService {
         this.userName = userName;
     }
 
-    public Long getPort() {
+    public Integer getPort() {
         return port;
     }
 
-    public void setPort(final Long port) {
+    public void setPort(final Integer port) {
         this.port = port;
     }
 

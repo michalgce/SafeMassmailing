@@ -1,9 +1,8 @@
 package pl.polsl.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 import pl.polsl.dao.SubscriberDao;
 import pl.polsl.entity.Groups;
@@ -12,7 +11,10 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ import static org.springframework.util.StringUtils.isEmpty;
 public class CampaigneService {
 
     @Autowired
-    protected JavaMailSender javaMailSender;
+    protected CustomJavaMailService customJavaMailService;
 
     @Autowired
     protected GroupService groupService;
@@ -36,7 +38,13 @@ public class CampaigneService {
     public Groups selectedGroup;
     public String topicMessage;
     public String contentMessage;
-    public final List<MimeMessagePreparator> preparedMessage = new ArrayList<>();
+    public final List<MimeMessage> preparedMessage = new ArrayList<>();
+
+    protected JavaMailSender javaMailSender;
+
+    public void prepareJavaMailSender() {
+        javaMailSender = customJavaMailService.buildJavaMailSender();
+    }
 
     public void goToGroup() {
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
@@ -79,10 +87,12 @@ public class CampaigneService {
 
     protected void createMessagesToSend() {
         //TODO przy kazdej nowej sesji
+        prepareJavaMailSender();
         preparedMessage.clear();
+
         subscriberDao.listGroupSubscribers(selectedGroup.getId())
                 .parallelStream()
-                .forEach(subscriber -> preparedMessage.add(prepareMessage(topicMessage, contentMessage, subscriber.getMail())));
+                .forEach(subscriber -> preparedMessage.add(prepareMimeMessage(topicMessage, contentMessage, subscriber.getMail())));
     }
 
     public void goToSend() {
@@ -105,24 +115,36 @@ public class CampaigneService {
     }
 
     public void send() {
-
-        preparedMessage.parallelStream().forEach(javaMailSender::send);
-
+        try {
+            preparedMessage.parallelStream().forEach(javaMailSender::send);
+        } catch (MailSendException e) {
+            e.printStackTrace();
+        }
         goToSuccess();
-    }
-
-    public MimeMessagePreparator prepareMessage(final String title, final String content, final String recipient) {
-        return mimeMessage -> {
-            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
-            mimeMessageHelper.setFrom("michalgce@gmail.com");
-            mimeMessageHelper.setSubject(title);
-            mimeMessageHelper.setText(content);
-            mimeMessageHelper.setTo(recipient);
-        };
     }
 
     public MimeMessage prepareMimeMessage(final String title, final String content, final String recipient) {
         final MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        try {
+            InternetAddress internetAddress = new InternetAddress("michal@michal.pl");
+            mimeMessage.setFrom(internetAddress);
+            mimeMessage.setText("test Value contnet");
+            mimeMessage.setRecipient(Message.RecipientType.TO, internetAddress);
+            mimeMessage.setSubject("SUBJECT !");
+        } catch (AddressException e) {
+            e.printStackTrace();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            System.out.println(mimeMessage.getContent().toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        return mimeMessage;
 
     }
 
