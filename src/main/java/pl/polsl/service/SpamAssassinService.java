@@ -34,6 +34,23 @@ public class SpamAssassinService {
 
         RestTemplate restTemplate = new RestTemplate();
         spamAssassinResponseDto = restTemplate.postForObject(spamAssassinUrl, spamAssassinRequestDto, SpamAssassinResponseDto.class);
+        switch (double x = spamAssassinResponseDto.getScore()) {
+            case x < 1.5 :
+                System.out.println("ASD");
+
+            case 1.5 <= x < 3 :
+                System.out.println("ASD");
+
+            case 3 <= x < 5 :
+                System.out.println("ASD");
+
+            case 1.5 <= x < 3 :
+                System.out.println("ASD");
+
+            default:
+                System.out.println("ASD");
+        }
+
 
     }
 

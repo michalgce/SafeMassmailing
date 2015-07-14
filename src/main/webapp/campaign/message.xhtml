@@ -15,10 +15,10 @@
     <h:form>
         <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
             <p:outputLabel for="topic" value="Enter topic message :  " style="width: 200px" />
-            <p:inputText id="topic" value="#{campaigneService.topicMessage}" style="width: 500px" />
+            <p:inputText id="topic" value="#{messageService.topicMessage}" style="width: 500px" />
 
             <p:outputLabel for="editor" value="Enter message :  " />
-            <p:editor id="editor" widgetVar="editorWidget" value="#{campaigneService.contentMessage}" width="600" />
+            <p:editor id="editor" widgetVar="editorWidget" value="#{messageService.contentMessage}" width="600" />
             <br />
         </h:panelGrid>
         <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToGroup}" value="Previous" />

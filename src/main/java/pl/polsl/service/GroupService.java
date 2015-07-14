@@ -31,19 +31,19 @@ public class GroupService {
     @Autowired
     protected SubscriberDao subscriberDao;
 
-    public List<Groups> groupses;
+    protected List<Groups> groups;
 
-    public Groups selectedGroups;
+    protected Groups selectedGroups;
 
-    public String groupName;
+    protected String groupName;
 
-    public List<Subscriber> groupSubscribers;
-    public List<Subscriber> subscribersOutsideGroup;
-    public DualListModel<Subscriber> subscriberDualListModel;
+    protected List<Subscriber> groupSubscribers;
+    protected List<Subscriber> subscribersOutsideGroup;
+    protected DualListModel<Subscriber> subscriberDualListModel;
 
     @PostConstruct
     public void fetchAvailableGroups() {
-        groupses = Lists.newArrayList(groupDao.findAll());
+        groups = Lists.newArrayList(groupDao.findAll());
     }
 
     public void createNewGroup() {
@@ -53,8 +53,8 @@ public class GroupService {
         }
 
         try {
-            Groups groups = new Groups(groupName);
-            groupDao.save(groups);
+            Groups groupsFromDB = new Groups(groupName);
+            groupDao.save(groupsFromDB);
             fetchAvailableGroups();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Success", "New group has been created."));
         } catch (DataIntegrityViolationException e) {
@@ -101,7 +101,7 @@ public class GroupService {
 
     }
 
-    private void addToGroup(final List<Subscriber> target) {
+    protected void addToGroup(final List<Subscriber> target) {
         target.stream().forEach(subscriber -> {
             final Subscriber subscriberMerged = subscriberDao.findOne(subscriber.getId());
             final Optional<Groups> currentGroup = findCurrentGroupForSubscriber(subscriberMerged);
@@ -114,7 +114,6 @@ public class GroupService {
             }
         });
     }
-
 
     protected void removeFromGroup(final List<Subscriber> source) {
         source.stream().forEach(subscriber -> {
@@ -136,12 +135,12 @@ public class GroupService {
                 .filter(group -> group.getId().equals(selectedGroups.getId())).findFirst();
     }
 
-    public List<Groups> getGroupses() {
-        return groupses;
+    public List<Groups> getGroups() {
+        return groups;
     }
 
-    public void setGroupses(final List<Groups> groupses) {
-        this.groupses = groupses;
+    public void setGroups(final List<Groups> groups) {
+        this.groups = groups;
     }
 
     public String getGroupName() {

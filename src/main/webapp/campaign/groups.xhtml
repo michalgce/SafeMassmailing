@@ -20,7 +20,7 @@
             <p:outputLabel for="menu" value="Select group from list:  " />
             <p:selectOneMenu id="menu" value="#{campaigneService.selectedGroup}" label="Groups"
                              filter="true" filterMatchMode="startsWith" converter="#{groupConverter}">
-                <f:selectItems value="#{groupService.groupses}" var="group" itemLabel="#{group.name}" itemValue="#{group}"/>
+                <f:selectItems value="#{groupService.groups}" var="group" itemLabel="#{group.name}" itemValue="#{group}"/>
             </p:selectOneMenu> <br/>
 
 

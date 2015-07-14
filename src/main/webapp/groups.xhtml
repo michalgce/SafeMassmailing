@@ -24,7 +24,7 @@
                        Choose group to manage:
                         <p:selectOneMenu id="menu" value="#{groupService.selectedGroups}" label="Groups"
                                          filter="true" filterMatchMode="startsWith" converter="#{groupConverter}">
-                            <f:selectItems value="#{groupService.groupses}" var="group" itemLabel="#{group.name}" itemValue="#{group}"/>
+                            <f:selectItems value="#{groupService.groups}" var="group" itemLabel="#{group.name}" itemValue="#{group}"/>
                         </p:selectOneMenu> <br/>
 
                         <!-- TODO NAPRAWIC !! -->

@@ -23,7 +23,7 @@ public class GroupConverter implements Converter {
     public Object getAsObject(final FacesContext context, final UIComponent component, final String value) {
         if (value != null && value.trim().length() > 0) {
            try {
-               return groupService.getGroupses().stream().filter(group -> group.getId().equals(Long.valueOf(value))).findFirst().get();
+               return groupService.getGroups().stream().filter(group -> group.getId().equals(Long.valueOf(value))).findFirst().get();
            } catch(NumberFormatException e) {
                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid group."));
            }

@@ -14,7 +14,15 @@
     </p:steps>
 
     <h:form>
+        <p:commandButton styleClass="btn btn-success" actionListener="#{testService.testCreatedMessage}" value="START A TEST" update="spamAssassinReportGrid"/>
+        <br />
+        <h:panelGroup id="spamAssassinReportGrid">
+            Raport: <h:outputText id="report" value="#{spamAssassinService.spamAssassinResponseDto.report}" styleClass="preformatted" />
 
+            <h3>Spam points: <h:outputText id="score" value="#{spamAssassinService.spamAssassinResponseDto.score}" /></h3>
+
+        </h:panelGroup>
+        <hr />
         <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToMessage}" value="Previous" />
         <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToSend}" value="Next" />
     </h:form>
