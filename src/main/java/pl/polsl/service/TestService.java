@@ -27,6 +27,7 @@ public class TestService {
     protected SpamAssassinService spamAssassinService;
 
     public void testCreatedMessage() {
+        //TODO zamiast mockowac serwer mozna wysylac maila na mailTrap i pobierac go z tamtad
         JavaMailSender javaMailSender = customJavaMailService.buildJavaTestMailSender();
         GreenMail greenMail = new GreenMail(ServerSetupTest.SMTP);
         Optional<MimeMessage> firstAvailableMsg = messageService.getPreparedMessage().stream().findFirst();
@@ -52,4 +53,7 @@ public class TestService {
         spamAssassinService.testMessage();
     }
 
+    public SpamAssassinService getSpamAssassinService() {
+        return spamAssassinService;
+    }
 }

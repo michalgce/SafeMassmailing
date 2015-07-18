@@ -14,17 +14,45 @@
     </p:steps>
 
     <h:form>
-        <p:commandButton styleClass="btn btn-success" actionListener="#{testService.testCreatedMessage}" value="START A TEST" update="spamAssassinReportGrid"/>
+        <p:commandButton styleClass="btn btn-success" actionListener="#{testService.testCreatedMessage}"
+                         value="START A TESTS" update="spamAssassinReportGrid successPanel warningPanel dangerPanel"/>
+        <hr />
         <br />
         <h:panelGroup id="spamAssassinReportGrid">
-            Raport: <h:outputText id="report" value="#{spamAssassinService.spamAssassinResponseDto.report}" styleClass="preformatted" />
-
-            <h3>Spam points: <h:outputText id="score" value="#{spamAssassinService.spamAssassinResponseDto.score}" /></h3>
-
+            <p:outputPanel id="successPanel" style="display: block" styleClass="alert alert-success" rendered="#{spamAssassinService.spamStatus == 'NO_SPAM'}">
+                Congratulations! <br/>
+                Your message looks safty.<br/>
+                <br/>
+                Now you could send it to your recipients.<br />
+                <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToMessage}" value="Change your title/message" />
+                <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToSend}" value="Send IT" />
+            </p:outputPanel>
+            <p:outputPanel id="warningPanel" style="display: block" styleClass="alert alert-warning" rendered="#{spamAssassinService.spamStatus == 'MAYBE_SPAM'}">
+                Could be better..<br/>
+                Your message looks safty but there is a propability that it point to SPAM bucket.<br/>
+                <br/>
+                You could send this message with risky undelivery message.<br/>
+                <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToMessage}" value="Change your title/message" />
+                <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToSend}" value="Send IT with risk" />
+            </p:outputPanel>
+            <p:outputPanel id="dangerPanel" style="display: block" styleClass="alert alert-danger" rendered="#{spamAssassinService.spamStatus == 'SPAM'}">
+                THIS IS SPAM!<br/>
+                Be sure if you send this campaing that it point directly to SPAM bucket.<br/>
+                YOU MUSN'T SEND THIS <br/>
+                <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToMessage}" value="Change your title/message" />
+            </p:outputPanel>
+            <p:tabView orientation="left">
+                <p:tab title="SpamAssasin Test">
+                    <h3>Spam points: <h:outputText id="score" value="#{spamAssassinService.spamAssassinResponseDto.score}" /></h3>
+                    Raport: <br/>
+                    <h:outputText id="report" value="#{spamAssassinService.spamAssassinResponseDto.report}" styleClass="preformatted" />
+                </p:tab>
+                <p:tab title="Bayess Naive Test">
+                    Bayess Naive Test
+                </p:tab>
+            </p:tabView>
         </h:panelGroup>
         <hr />
-        <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToMessage}" value="Previous" />
-        <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToSend}" value="Next" />
     </h:form>
     <br />
 </ui:define>

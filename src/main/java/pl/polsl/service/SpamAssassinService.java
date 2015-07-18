@@ -7,8 +7,10 @@ import org.springframework.web.client.RestTemplate;
 import pl.polsl.dto.SpamAssassinOptions;
 import pl.polsl.dto.SpamAssassinRequestDto;
 import pl.polsl.dto.SpamAssassinResponseDto;
+import pl.polsl.enums.SpamStatus;
 
 import javax.faces.bean.ManagedBean;
+import java.time.temporal.ValueRange;
 
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
@@ -17,11 +19,13 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
 public class SpamAssassinService {
 
     @Value("${spamassassin.url}")
-    private String spamAssassinUrl;
+    protected String spamAssassinUrl;
 
-    private String message;
+    protected String message;
 
-    private SpamAssassinResponseDto spamAssassinResponseDto;
+    protected SpamAssassinResponseDto spamAssassinResponseDto;
+
+    protected SpamStatus spamStatus;
 
     public void testMessage() {
         resetResponse();
@@ -34,23 +38,16 @@ public class SpamAssassinService {
 
         RestTemplate restTemplate = new RestTemplate();
         spamAssassinResponseDto = restTemplate.postForObject(spamAssassinUrl, spamAssassinRequestDto, SpamAssassinResponseDto.class);
-        switch (double x = spamAssassinResponseDto.getScore()) {
-            case x < 1.5 :
-                System.out.println("ASD");
 
-            case 1.5 <= x < 3 :
-                System.out.println("ASD");
+        Double score = spamAssassinResponseDto.getScore();
 
-            case 3 <= x < 5 :
-                System.out.println("ASD");
-
-            case 1.5 <= x < 3 :
-                System.out.println("ASD");
-
-            default:
-                System.out.println("ASD");
+        if (ValueRange.of(0, 1).isValidIntValue(score.longValue())) {
+            spamStatus = SpamStatus.NO_SPAM;
+        } else if (ValueRange.of(2, 4).isValidIntValue(score.longValue())){
+            spamStatus = SpamStatus.MAYBE_SPAM;
+        } else {
+            spamStatus = SpamStatus.SPAM;
         }
-
 
     }
 
@@ -73,5 +70,13 @@ public class SpamAssassinService {
 
     public void setSpamAssassinResponseDto(final SpamAssassinResponseDto spamAssassinResponseDto) {
         this.spamAssassinResponseDto = spamAssassinResponseDto;
+    }
+
+    public SpamStatus getSpamStatus() {
+        return spamStatus;
+    }
+
+    public void setSpamStatus(final SpamStatus spamStatus) {
+        this.spamStatus = spamStatus;
     }
 }

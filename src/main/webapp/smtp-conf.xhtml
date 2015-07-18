@@ -31,17 +31,15 @@
                         <br />
 
                         <p:commandButton value="Create new SMTP configuration" actionListener="#{smtpConfigurationService.create}"
-                                         update="msgs tabView:smtpConfDataTable" />
+                                         update="msgs tabView:form:smtpConfDataTable" />
                     </h:panelGrid>
                 </h:form>
             </p:tab>
             <p:tab title="2. Edit/Delete configuration">
-                <p:dataTable id="smtpConfDataTable" var="configuration" value="#{smtpConfigurationService.configurations}">
-                    <p:column headerText="Id">
-                        <h:outputText value="#{configuration.id}" />
-                    </p:column>
-                    <p:column headerText="Is active">
-                        <h:selectBooleanCheckbox value="#{configuration.active}" disabled="true"/>
+                <h:form id="form">
+                <p:dataTable id="smtpConfDataTable" var="configuration" widgetVar="configurationTable" value="#{smtpConfigurationService.configurations}">
+                    <p:column headerText="Status" style="text-align: center; width: 10%">
+                        <p:inputSwitch value="#{configuration.active}" disabled="true" />
                     </p:column>
                     <p:column headerText="Configuration name">
                         <h:outputText value="#{configuration.name}" />
@@ -49,13 +47,46 @@
                     <p:column headerText="SMTP Address">
                         <h:outputText value="#{configuration.address}" />
                     </p:column>
-                    <p:column headerText="SMTP Address">
+                    <p:column headerText="SMTP Port" style="width: 15%">
                         <h:outputText value="#{configuration.port}" />
                     </p:column>
                     <p:column headerText="SMTP Username">
                         <h:outputText value="#{configuration.userName}" />
                     </p:column>
+                    <p:column style="width:10%;text-align: center">
+                        <p:commandButton update="tabView:form:configurationDetail" oncomplete="PF('configurationDialog').show()" icon="ui-icon-search" title="View">
+                            <f:setPropertyActionListener value="#{configuration}" target="#{smtpConfigurationService.selectedSmtpConfiguration}" />
+                        </p:commandButton>
+                    </p:column>
                 </p:dataTable>
+
+                <p:dialog header="Configuration Info" widgetVar="configurationDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                    <p:outputPanel id="configurationDetail" style="text-align:center;">
+                        <p:panelGrid  columns="2" rendered="#{not empty smtpConfigurationService.selectedSmtpConfiguration}">
+
+                            <h:outputText value="Configuration name" />
+                            <h:inputText value="#{smtpConfigurationService.selectedSmtpConfiguration.name}" />
+
+                            <h:outputText value="SMTP Host:" />
+                            <h:inputText value="#{smtpConfigurationService.selectedSmtpConfiguration.address}" />
+
+                            <h:outputText value="SMTP Port:" />
+                            <p:inputMask mask="99?99" value="#{smtpConfigurationService.selectedSmtpConfiguration.port}" />
+
+                            <h:outputText value="SMTP New Password" />
+                            <h:inputSecret value="#{smtpConfigurationService.selectedSmtpConfiguration.password}" />
+
+                            <h:outputText value="Is active :" />
+                            <p:inputSwitch value="#{smtpConfigurationService.selectedSmtpConfiguration.active}">
+                                <p:ajax listener="#{smtpConfigurationService.setAsActive}" />
+                            </p:inputSwitch>
+                        </p:panelGrid>
+                        <hr />
+                        <p:commandButton type="reset" value="Reset" />
+                        <p:commandButton id="updateButton" value="Update" actionListener="#{smtpConfigurationService.update}" oncomplete="PF('configurationDialog').hide();" update="tabView:form:smtpConfDataTable" />
+                    </p:outputPanel>
+                </p:dialog>
+                </h:form>
             </p:tab>
         </p:tabView>
     </ui:define>

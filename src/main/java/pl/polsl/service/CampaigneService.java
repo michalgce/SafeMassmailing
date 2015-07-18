@@ -24,6 +24,9 @@ public class CampaigneService {
     @Autowired
     protected MessageService messageService;
 
+    @Autowired
+    protected TestService testService;
+
 
     public void goToGroup() {
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
@@ -42,7 +45,7 @@ public class CampaigneService {
 
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
         try {
-            clearMessage();
+            clearMessageService();
             context.redirect(context.getRequestContextPath() + "/campaign/message.xhtml");
         } catch (IOException e) {
             e.printStackTrace();
@@ -55,6 +58,7 @@ public class CampaigneService {
                     "Enter topic and content."));
         }
 
+        clearTestService();
         messageService.createMessagesToSend();
 
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
@@ -63,6 +67,11 @@ public class CampaigneService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    protected void clearTestService() {
+        testService.getSpamAssassinService().setSpamAssassinResponseDto(null);
+        testService.getSpamAssassinService().setSpamStatus(null);
     }
 
     public void goToSend() {
@@ -91,7 +100,7 @@ public class CampaigneService {
         this.selectedGroup = selectedGroup;
     }
 
-    protected void clearMessage() {
+    protected void clearMessageService() {
         messageService.setTopicMessage(null);
         messageService.setContentMessage(null);
     }

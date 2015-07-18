@@ -1,5 +1,5 @@
-INSERT INTO subscriber(first_name, last_name, mail) VALUES ('Michał', 'Witkowski', 'michal@gmail.com');
-INSERT INTO subscriber(first_name, last_name, mail) VALUES ('Sandra', 'Kamela', 'sandra@gmail.com');
+INSERT INTO subscriber(first_name, last_name, mail) VALUES ('Michał', 'Witkowski', 'michalgce@gmail.com');
+INSERT INTO subscriber(first_name, last_name, mail) VALUES ('Sandra', 'Kamela', 'kamela.sandra@gmail.com');
 
 INSERT INTO groups(name) VALUES ('Gliwice');
 INSERT INTO groups(name) VALUES ('Toszek');

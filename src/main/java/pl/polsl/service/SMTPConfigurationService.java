@@ -10,11 +10,12 @@ import pl.polsl.entity.SMTPConfiguration;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 @ManagedBean
-public class SMTPConfigurationService {
+public class SmtpConfigurationService {
 
     @Autowired
     protected SMTPConfigurationDao smtpConfigurationDao;
@@ -29,6 +30,7 @@ public class SMTPConfigurationService {
     public String password;
 
     protected List<SMTPConfiguration> configurations;
+    protected SMTPConfiguration selectedSmtpConfiguration;
 
     public void create() {
         SMTPConfiguration smtpConfiguration = new SMTPConfiguration();
@@ -48,6 +50,27 @@ public class SMTPConfigurationService {
                     "Fatal", "There was a problem during creating new smtp configuration."));
         }
 
+    }
+
+    public void update() {
+        smtpConfigurationDao.save(selectedSmtpConfiguration);
+    }
+
+    @Transactional
+    public void setAsActive() {
+        if (selectedSmtpConfiguration.getActive()) {
+            deactivateCurrent();
+        }
+        smtpConfigurationDao.save(selectedSmtpConfiguration);
+
+    }
+
+    private void deactivateCurrent() {
+        SMTPConfiguration currentActive = smtpConfigurationDao.getActive();
+        if (currentActive != null) {
+            currentActive.setActive(Boolean.FALSE);
+            smtpConfigurationDao.save(currentActive);
+        }
     }
 
     public String getPassword() {
@@ -104,5 +127,13 @@ public class SMTPConfigurationService {
 
     public void setConfigurations(final List<SMTPConfiguration> configurations) {
         this.configurations = configurations;
+    }
+
+    public SMTPConfiguration getSelectedSmtpConfiguration() {
+        return selectedSmtpConfiguration;
+    }
+
+    public void setSelectedSmtpConfiguration(final SMTPConfiguration selectedSmtpConfiguration) {
+        this.selectedSmtpConfiguration = selectedSmtpConfiguration;
     }
 }

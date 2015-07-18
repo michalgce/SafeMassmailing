@@ -16,12 +16,10 @@ public class SMTPConfiguration {
 
     protected Integer port;
 
-    @Column(name = "user_name")
     protected String userName;
 
     protected String password;
 
-    @Column(unique = true)
     protected Boolean active;
 
     public Long getId() {
