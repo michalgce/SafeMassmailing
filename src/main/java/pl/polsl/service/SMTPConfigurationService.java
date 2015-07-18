@@ -23,11 +23,11 @@ public class SmtpConfigurationService {
     @Autowired
     protected SubscriberDao subscriberDao;
 
-    public String name;
-    public String address;
-    public Integer port;
-    public String userName;
-    public String password;
+    protected String name;
+    protected String address;
+    protected Integer port;
+    protected String userName;
+    protected String password;
 
     protected List<SMTPConfiguration> configurations;
     protected SMTPConfiguration selectedSmtpConfiguration;

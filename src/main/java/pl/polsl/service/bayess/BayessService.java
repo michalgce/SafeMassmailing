@@ -26,7 +26,7 @@ public class BayessService implements Serializable, SpamDetection {
 
     @PostConstruct
     void init() {
-        learnWhatIsSpam();
+        //learnWhatIsSpam();
     }
 
     @Override

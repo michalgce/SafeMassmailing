@@ -25,7 +25,7 @@ public class SubscriberService {
     @Autowired
     protected SubscriberDao subscriberDao;
 
-    public List<Subscriber> subscribers;
+    protected List<Subscriber> subscribers;
 
     protected String firstName;
     protected String lastName;

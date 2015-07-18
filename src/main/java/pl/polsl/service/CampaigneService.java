@@ -70,8 +70,7 @@ public class CampaigneService {
     }
 
     protected void clearTestService() {
-        testService.getSpamAssassinService().setSpamAssassinResponseDto(null);
-        testService.getSpamAssassinService().setSpamStatus(null);
+        testService.flushTests();
     }
 
     public void goToSend() {

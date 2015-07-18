@@ -1,16 +1,17 @@
 package pl.polsl.service;
 
 import com.icegreen.greenmail.util.GreenMail;
-import com.icegreen.greenmail.util.GreenMailUtil;
 import com.icegreen.greenmail.util.ServerSetupTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import pl.polsl.service.spam_test.SpamTest;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.mail.internet.MimeMessage;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,9 +25,23 @@ public class TestService {
     protected CustomJavaMailService customJavaMailService;
 
     @Autowired
-    protected SpamAssassinService spamAssassinService;
+    protected List<SpamTest> allAvailableSpamTest;
 
-    public void testCreatedMessage() {
+    public void runTests() {
+        MimeMessage mimeMessage = prepareMessageToTests();
+
+        // parallel test run
+        allAvailableSpamTest.parallelStream().peek(spamTest1 ->  {
+            System.out.println("Run test " + spamTest1.getClass().getName());
+        }).forEach(spamTest -> spamTest.run(mimeMessage));
+    }
+
+    public void flushTests() {
+        allAvailableSpamTest.parallelStream().peek(spamTest -> {
+            System.out.println("Flush test " + spamTest.getClass().getName());
+        }).forEach(SpamTest::flush);
+    }
+    protected MimeMessage prepareMessageToTests() {
         //TODO zamiast mockowac serwer mozna wysylac maila na mailTrap i pobierac go z tamtad
         JavaMailSender javaMailSender = customJavaMailService.buildJavaTestMailSender();
         GreenMail greenMail = new GreenMail(ServerSetupTest.SMTP);
@@ -41,19 +56,10 @@ public class TestService {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Fatal", "System cannot intercept message."));
             }
 
-            String interceptedMessage = GreenMailUtil.getWholeMessage(received[0]);
-            runSpamAssasinTest(interceptedMessage);
+            return received[0];
 
         }
 
-    }
-
-    protected void runSpamAssasinTest(final String interceptedMessage) {
-        spamAssassinService.setMessage(interceptedMessage);
-        spamAssassinService.testMessage();
-    }
-
-    public SpamAssassinService getSpamAssassinService() {
-        return spamAssassinService;
+        throw new IllegalStateException("There was a problem with preparing message to tests.");
     }
 }
