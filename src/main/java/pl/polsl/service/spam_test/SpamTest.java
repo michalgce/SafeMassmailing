@@ -7,4 +7,6 @@ public interface SpamTest {
     void run(MimeMessage mimeMessage);
 
     void flush();
+
+    String getStatus();
 }

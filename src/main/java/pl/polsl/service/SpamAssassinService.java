@@ -43,7 +43,7 @@ public class SpamAssassinService {
 
         if (ValueRange.of(0, 1).isValidIntValue(score.longValue())) {
             spamStatus = SpamStatus.NO_SPAM;
-        } else if (ValueRange.of(2, 4).isValidIntValue(score.longValue())){
+        } else if (ValueRange.of(2, 3).isValidIntValue(score.longValue())){
             spamStatus = SpamStatus.MAYBE_SPAM;
         } else {
             spamStatus = SpamStatus.SPAM;

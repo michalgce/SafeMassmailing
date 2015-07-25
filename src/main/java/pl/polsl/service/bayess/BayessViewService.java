@@ -1,16 +1,10 @@
 package pl.polsl.service.bayess;
 
-import org.apache.commons.io.IOUtils;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import java.io.IOException;
-import java.util.List;
 
 @Service
 @Scope("session")
@@ -21,14 +15,15 @@ public class BayessViewService {
 
     protected UploadedFile file;
 
-    public String handleLearnNewFileUpload(FileUploadEvent fileUploadEvent) {
-        file = fileUploadEvent.getFile();
+    public String handleTestFile(FileUploadEvent fileUploadEvent) {
+        //TODO need to be implemented
+        /*file = fileUploadEvent.getFile();
 
         if (file != null) {
 
             try {
                 final List<String> incomingText = IOUtils.readLines(file.getInputstream());
-                final Boolean spam = bayessService.isThatSpam(incomingText);
+                final Boolean spam = bayessService.analyze(incomingText);
                 if (spam) {
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("THIS IS SPAM !!!"));
                 } else {
@@ -38,11 +33,14 @@ public class BayessViewService {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning file was not uploaded", "Size of file is null. Is this ok? "));
             }
         }
+        return null;*/
         return null;
     }
 
     public String handleTestFileUpload(FileUploadEvent fileUploadEvent) {
-        file = fileUploadEvent.getFile();
+        //TODO need to be implemented
+
+        /*file = fileUploadEvent.getFile();
 
         if (file != null) {
 
@@ -54,7 +52,9 @@ public class BayessViewService {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning file was not uploaded", "Size of file is null. Is this ok? "));
             }
         }
+        return null;*/
         return null;
+
     }
 
     public UploadedFile getFile() {

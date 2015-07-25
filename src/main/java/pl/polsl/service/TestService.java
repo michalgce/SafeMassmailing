@@ -49,7 +49,7 @@ public class TestService {
 
         if (firstAvailableMsg != null) {
             greenMail.start();
-            javaMailSender.send(firstAvailableMsg.get());
+                javaMailSender.send(firstAvailableMsg.get());
             MimeMessage[] received = greenMail.getReceivedMessages();
             greenMail.stop();
             if (received.length < 1) {

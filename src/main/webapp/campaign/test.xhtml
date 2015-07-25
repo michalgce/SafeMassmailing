@@ -47,8 +47,9 @@
                     Raport: <br/>
                     <h:outputText id="report" value="#{spamAssassinService.spamAssassinResponseDto.report}" styleClass="preformatted" />
                 </p:tab>
-                <p:tab title="Bayess Naive Test">
+                <p:tab title="Bayess Naive Test &lt;img src='../javax.faces.resource/#{bayessTest.status}.png.xhtml?ln=image'/&gt;">
                     Bayess Naive Test
+                    Test result : #{bayessTest.isThisSpam}
                 </p:tab>
             </p:tabView>
         </h:panelGroup>
