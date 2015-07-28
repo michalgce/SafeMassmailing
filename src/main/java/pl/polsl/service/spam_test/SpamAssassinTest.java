@@ -34,16 +34,19 @@ public class SpamAssassinTest implements SpamTest {
     public String getStatus() {
         SpamStatus spamStatus = spamAssassinService.getSpamStatus();
 
+        if (spamStatus == null) {
+            return "none";
+        }
+
         switch (spamStatus) {
             case SPAM:
-                return "error";
-            case MAYBE_SPAM:
+                return "error";            case MAYBE_SPAM:
                 return "warn";
             case NO_SPAM:
                 return "ok";
+            default:
+                return "none";
         }
-
-        return "none";
     }
 
     public SpamAssassinService getSpamAssassinService() {

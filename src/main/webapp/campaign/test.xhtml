@@ -42,12 +42,12 @@
                 <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToMessage}" value="Change your title/message" />
             </p:outputPanel>
             <p:tabView orientation="left">
-                <p:tab title="SpamAssasin Test">
+                <p:tab title="&lt;img src='../javax.faces.resource/#{spamAssassinTest.status}.png.xhtml?ln=image'/&gt; SpamAssasin Test">
                     <h3>Spam points: <h:outputText id="score" value="#{spamAssassinService.spamAssassinResponseDto.score}" /></h3>
                     Raport: <br/>
                     <h:outputText id="report" value="#{spamAssassinService.spamAssassinResponseDto.report}" styleClass="preformatted" />
                 </p:tab>
-                <p:tab title="Bayess Naive Test &lt;img src='../javax.faces.resource/#{bayessTest.status}.png.xhtml?ln=image'/&gt;">
+                <p:tab title="&lt;img src='../javax.faces.resource/#{bayessTest.status}.png.xhtml?ln=image'/&gt; Bayess Naive Test">
                     Bayess Naive Test
                     Test result : #{bayessTest.isThisSpam}
                 </p:tab>

@@ -41,11 +41,8 @@ public class BayessService {
         //trainHam();
         //trainSpam();
         try {
-            trainSpam("/Users/rastabandita/Projects/SafeMassmailing/src/main/resources/static/spam_new/spam.txt");
-            trainSpam("/Users/rastabandita/Projects/SafeMassmailing/src/main/resources/static/spam_new/spam2.txt");
-            trainGood("/Users/rastabandita/Projects/SafeMassmailing/src/main/resources/static/ham_new/good.txt");
-            trainGood("/Users/rastabandita/Projects/SafeMassmailing/src/main/resources/static/ham_new/ham.txt");
-            trainGood("/Users/rastabandita/Projects/SafeMassmailing/src/main/resources/static/ham_new/ham2.txt");
+            //trainSpam("/Users/Michau/Projects/mass-mailing/src/main/resources/static/spam/spam.txt");
+            trainGood("/Users/Michau/Projects/mass-mailing/src/main/resources/static/ham/ham.txt");
             finalizeTraining();
 
         } catch (IOException e) {
