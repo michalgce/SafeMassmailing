@@ -1,4 +1,4 @@
-INSERT INTO subscriber(first_name, last_name, mail) VALUES ('Michał', 'Witkowski', 'michalgce@gmail.com');
+INSERT INTO subscriber(first_name, last_name, mail) VALUES ('Michal', 'Witkowski', 'michalgce@gmail.com');
 INSERT INTO subscriber(first_name, last_name, mail) VALUES ('Sandra', 'Kamela', 'kamela.sandra@gmail.com');
 
 INSERT INTO groups(name) VALUES ('Gliwice');

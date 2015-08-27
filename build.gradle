@@ -9,7 +9,7 @@ buildscript {
 
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
-        classpath("io.spring.gradle:dependency-management-plugin:0.5.0.RELEASE")
+        classpath("io.spring.gradle:dependency-management-plugin:0.5.3.RELEASE")
     }
 
 }
@@ -102,6 +102,7 @@ springBoot {
 jar.into('static') {
     from('src/main/webapp')
 }
+
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    gradleVersion = '2.6'
 }
