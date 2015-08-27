@@ -2,6 +2,7 @@ package pl.polsl.service;
 
 import com.icegreen.greenmail.util.GreenMail;
 import com.icegreen.greenmail.util.ServerSetupTest;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,8 @@ public class TestService {
         allAvailableSpamTest.parallelStream().peek(spamTest1 ->  {
             System.out.println("Run test " + spamTest1.getClass().getName());
         }).forEach(spamTest -> spamTest.run(mimeMessage));
+
+        RequestContext.getCurrentInstance().update("spamAssassinReportGrid");
     }
 
     public void flushTests() {

@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import pl.polsl.service.bayess.BayessService;
 
 import javax.faces.bean.ManagedBean;
+import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import java.io.IOException;
 
 @Service
 @ManagedBean
@@ -20,8 +22,15 @@ public class BayessTest implements SpamTest {
     @Override
     public void run(final MimeMessage mimeMessage) {
         String interceptedMessage = GreenMailUtil.getWholeMessage(mimeMessage);
-
-        isThisSpam = bayessService.analyze(interceptedMessage);
+        String plainMessage = null;
+        try {
+            plainMessage = "Subject: " + mimeMessage.getSubject().toString() + "\n" + mimeMessage.getContent().toString();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        isThisSpam = bayessService.analyze(plainMessage);
     }
 
     @Override

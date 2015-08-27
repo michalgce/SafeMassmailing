@@ -83,6 +83,7 @@ public class CampaigneService {
     }
 
     public void goToSuccess() {
+        messageService.send();
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
         try {
             context.redirect(context.getRequestContextPath() + "/campaign/success.xhtml");

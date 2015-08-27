@@ -1,6 +1,5 @@
 package pl.polsl.service;
 
-import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -53,7 +52,6 @@ public class SpamAssassinService {
 
     private void resetResponse() {
         spamAssassinResponseDto = null;
-        RequestContext.getCurrentInstance().update("spamAssassinReportGrid");
     }
 
     public String getMessage() {

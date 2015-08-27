@@ -15,7 +15,7 @@
 
     <h:form>
         <p:commandButton styleClass="btn btn-success" actionListener="#{testService.runTests}"
-                         value="START A TESTS" update="spamAssassinReportGrid successPanel warningPanel dangerPanel"/>
+                         value="START A TESTS" update="spamAssassinReportGrid successPanel warningPanel dangerPanel" onclick=""/>
         <hr />
         <br />
         <h:panelGroup id="spamAssassinReportGrid">
@@ -50,6 +50,10 @@
                 <p:tab title="&lt;img src='../javax.faces.resource/#{bayessTest.status}.png.xhtml?ln=image'/&gt; Bayess Naive Test">
                     Bayess Naive Test
                     Test result : #{bayessTest.isThisSpam}
+                </p:tab>
+                <p:tab title="&lt;img src='../javax.faces.resource/#{gmailTest.status}.png.xhtml?ln=image'/&gt; Gmail Spam Test">
+                    Gmail spam test
+                    Test result : #{gmailTest.isThisSpam}
                 </p:tab>
             </p:tabView>
         </h:panelGroup>

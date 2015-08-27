@@ -1,6 +1,8 @@
 package pl.polsl.service.bayess;
 
-public class Word {
+import java.io.Serializable;
+
+public class Word implements Serializable {
     private String word;    // The String itself
     private int countBad;   // The total times it appears in "bad" messages
     private int countGood;  // The total times it appears in "good" messages
@@ -71,5 +73,21 @@ public class Word {
 
     public String getWord() {
         return word;
+    }
+
+    public int getCountGood() {
+        return countGood;
+    }
+
+    public void setCountGood(final int countGood) {
+        this.countGood = countGood;
+    }
+
+    public int getCountBad() {
+        return countBad;
+    }
+
+    public void setCountBad(final int countBad) {
+        this.countBad = countBad;
     }
 }

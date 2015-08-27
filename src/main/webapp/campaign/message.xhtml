@@ -13,8 +13,11 @@
         <p:menuitem value="Send message" />
     </p:steps>
     <h:form>
-        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-            <p:outputLabel for="topic" value="Enter topic message :  " style="width: 200px" />
+        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="6">
+            <p:outputLabel for="from" value="Enter from address: " style="width: 200px" />
+            <p:inputText id="from" value="#{messageService.fromAddress}" style="width: 500px" />
+
+            <p:outputLabel for="topic" value="Enter topic message: " style="width: 200px" />
             <p:inputText id="topic" value="#{messageService.topicMessage}" style="width: 500px" />
 
             <p:outputLabel for="editor" value="Enter message :  " />
