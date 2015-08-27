@@ -152,15 +152,18 @@ public class GmailTest implements SpamTest {
                     .setQ(gmailQueryAllUnRead)
                     .execute().getMessages();
 
-            messages.forEach(message -> {
+            if (null != messages) {
+                messages.forEach(message -> {
 
-                try {
-                    gmail.users().messages().delete(gmailTestMail, message.getId()).execute();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                    try {
+                        gmail.users().messages().delete(gmailTestMail, message.getId()).execute();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
-            });
+                });
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

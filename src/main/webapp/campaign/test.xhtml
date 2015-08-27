@@ -14,8 +14,14 @@
     </p:steps>
 
     <h:form>
-        <p:commandButton styleClass="btn btn-success" actionListener="#{testService.runTests}"
-                         value="START A TESTS" update="spamAssassinReportGrid successPanel warningPanel dangerPanel" onclick=""/>
+        <p:commandButton styleClass="btn btn-success" actionListener="#{testService.runTests}" ajax="true"
+                         value="START A TESTS" update="spamAssassinReportGrid successPanel warningPanel dangerPanel"
+                         onclick="PF('statusDialog').show();" oncomplete="PF('statusDialog').hide();" />
+
+        <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+            <h:graphicImage library="image" name="loading.gif" />
+        </p:dialog>
+
         <hr />
         <br />
         <h:panelGroup id="spamAssassinReportGrid">
