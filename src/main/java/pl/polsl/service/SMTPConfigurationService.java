@@ -65,7 +65,7 @@ public class SmtpConfigurationService {
 
     }
 
-    private void deactivateCurrent() {
+    protected void deactivateCurrent() {
         SMTPConfiguration currentActive = smtpConfigurationDao.getActive();
         if (currentActive != null) {
             currentActive.setActive(Boolean.FALSE);
