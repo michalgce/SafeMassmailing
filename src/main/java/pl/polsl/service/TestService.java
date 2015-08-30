@@ -65,4 +65,8 @@ public class TestService {
 
         throw new IllegalStateException("There was a problem with preparing message to tests.");
     }
+
+    public List<SpamTest> getAllAvailableSpamTest() {
+        return allAvailableSpamTest;
+    }
 }

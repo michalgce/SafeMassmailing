@@ -74,9 +74,9 @@ public class BayessService {
         }*/
 
         // Read the content and break up into words
-        final int[] spamTotal = {0};//tokenizer.countTokens(); // How many words total
+        final int[] spamTotal = {0};
         // For every word token
-        System.out.println("Ropoczynam analyze slow spamowych.");
+        System.out.println("Started analyzing spam words.");
         spamWordMap.forEach((index, token) -> {
             Matcher m = wordregex.matcher(token);
             if (m.matches()) {
@@ -123,7 +123,7 @@ public class BayessService {
         // Read the content and break up into words
         final int[] hamTotal = {0};//tokenizer.countTokens(); // How many words total
         // For every word token
-        System.out.println("Ropoczynam analyze slow hamowych.");
+        System.out.println("Started analyze ham words.");
         hamWordMap.forEach((index, token) -> {
             Matcher m = wordregex.matcher(token);
             if (m.matches()) {
@@ -165,6 +165,10 @@ public class BayessService {
         // Create an arraylist of 15 most "interesting" words
         // Words are most interesting based on how different their Spam probability is from 0.5
         ArrayList interesting = new ArrayList();
+
+        if (stuff == null) {
+            return Boolean.FALSE;
+        }
 
         // For every word in the String to be analyzed
         String[] tokens = stuff.split("\\W");

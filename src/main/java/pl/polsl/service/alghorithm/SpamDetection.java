@@ -1,4 +1,4 @@
-package pl.polsl.alghorithm;
+package pl.polsl.service.alghorithm;
 
 import java.util.List;
 

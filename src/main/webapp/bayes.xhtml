@@ -6,34 +6,8 @@
                 xmlns:p="http://primefaces.org/ui"
         >
 <ui:define name="content">
-    <p:panelGrid>
-        <p:row>
-            Learn your bayesian algorithm
-            <p:column>
-                Choose file with predefined spam pattern email:
-                <h:form enctype="multipart/form-data">
-                    <p:growl autoUpdate="true"/>
-                    <p:fileUpload fileUploadListener="#{bayessViewService.handleLearnNewFileUpload}" label="Choose File"
-                                  uploadLabel="Learn new pattern" value="#{bayessViewService.file}" mode="advanced"
-                                  allowTypes="/(\.|\/)(txt)$/" />
-                </h:form>
-            </p:column>
-            <p:column>
-                Test if selected file is spam.
-                <h:form enctype="multipart/form-data">
-                    <p:growl autoUpdate="true"/>
-                    <p:fileUpload fileUploadListener="#{bayessViewService.handleLearnNewFileUpload}" label="Choose File"
-                                  uploadLabel="Test selected pattern" value="#{bayessViewService.file}" mode="advanced"
-                                  allowTypes="/(\.|\/)(txt)$/" />
-                </h:form>
-            </p:column>
-            <p:column>
-
-            </p:column>
-        </p:row>
-    </p:panelGrid>
     <h:form>
-        <p:commandButton actionListener="#{bayessService.displayStats}" value="Display stats" />
+        <p:commandButton actionListener="#{experimentsService.runTests}" value="RUN EXPERIMENTS" />
     </h:form>
 </ui:define>
 </ui:composition>

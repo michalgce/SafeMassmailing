@@ -80,6 +80,10 @@ public class MessageService {
     }
 
     public void send(final MimeMessage mimeMessage) {
+        if (javaMailSender == null) {
+            prepareJavaMailSender();
+        }
+
         javaMailSender.send(mimeMessage);
     }
 

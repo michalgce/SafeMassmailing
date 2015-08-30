@@ -40,7 +40,8 @@ public class SpamAssassinTest implements SpamTest {
 
         switch (spamStatus) {
             case SPAM:
-                return "error";            case MAYBE_SPAM:
+                return "error";
+            case MAYBE_SPAM:
                 return "warn";
             case NO_SPAM:
                 return "ok";
