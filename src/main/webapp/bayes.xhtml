@@ -7,7 +7,11 @@
         >
 <ui:define name="content">
     <h:form>
-        <p:commandButton actionListener="#{experimentsService.runTests}" value="RUN EXPERIMENTS" />
+        <p:commandButton actionListener="#{experimentsService.checkEfficiencyOfSpams}" value="Check spam efficensy" />
+        <br/>
+        <p:commandButton actionListener="#{experimentsService.checkEfficiencyOfHams}" value="Check spam efficensy" />
+        <br/>
+        <p:commandButton actionListener="#{experimentsService.testHowManyEmailCanBeSendFromHostings}" value="Send test msg" />
     </h:form>
 </ui:define>
 </ui:composition>

@@ -1,6 +1,7 @@
 package pl.polsl.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
 import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,21 @@ public class MessageService {
 
     public void prepareJavaMailSender() {
         javaMailSender = customJavaMailService.buildJavaMailSender();
+    }
+
+    public MimeMessage prepareMimeMessage(final String fromAddress, final String title, final String content, final String recipient) {
+        final MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        try {
+            //TODO adres from musi byc aktualnym nadawca!!
+            mimeMessage.setFrom(new InternetAddress(fromAddress));
+            mimeMessage.setContent(content, "text/html; charset=utf-8");
+            mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+            mimeMessage.setSubject(title);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+
+        return mimeMessage;
     }
 
     public MimeMessage prepareMimeMessage(final String title, final String content, final String recipient) {
@@ -84,7 +100,11 @@ public class MessageService {
             prepareJavaMailSender();
         }
 
-        javaMailSender.send(mimeMessage);
+        try {
+            javaMailSender.send(mimeMessage);
+        } catch (MailException me) {
+            System.out.println();
+        }
     }
 
     protected void createMessagesToSend() {
