@@ -92,8 +92,9 @@ public class GmailTest implements SpamTest {
                                  if (header.getValue().equals(uuid.toString())) {
                                      if (labelIds.contains("SPAM")) {
                                          isThisSpam = true;
+                                     } else {
+                                         isThisSpam = false;
                                      }
-                                 isThisSpam = false;
                          }
                      });
 
@@ -134,6 +135,8 @@ public class GmailTest implements SpamTest {
         try {
             //TODO adres from musi byc aktualnym nadawca!!
             mimeMessage.setContent(mimeMessage.getContent(), "text/html; charset=utf-8");
+            mimeMessage.setRecipients(Message.RecipientType.CC, "");
+            mimeMessage.setRecipients(Message.RecipientType.BCC, "");
             mimeMessage.setRecipients(Message.RecipientType.TO, gmailTestMail);
         } catch (MessagingException e) {
             e.printStackTrace();

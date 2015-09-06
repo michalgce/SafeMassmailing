@@ -2,6 +2,7 @@ package pl.polsl.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 import pl.polsl.dto.SpamAssassinOptions;
 import pl.polsl.dto.SpamAssassinRequestDto;
@@ -27,6 +28,7 @@ public class SpamAssassinService {
     protected SpamStatus spamStatus;
 
     public void testMessage() {
+        Double score = null;
         resetResponse();
 
         if (isEmpty(message)) {
@@ -35,10 +37,15 @@ public class SpamAssassinService {
 
         SpamAssassinRequestDto spamAssassinRequestDto = new SpamAssassinRequestDto(message, SpamAssassinOptions.LONG);
 
-        RestTemplate restTemplate = new RestTemplate();
-        spamAssassinResponseDto = restTemplate.postForObject(spamAssassinUrl, spamAssassinRequestDto, SpamAssassinResponseDto.class);
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            spamAssassinResponseDto = restTemplate.postForObject(spamAssassinUrl, spamAssassinRequestDto, SpamAssassinResponseDto.class);
+            score = spamAssassinResponseDto.getScore();
 
-        Double score = spamAssassinResponseDto.getScore();
+
+        } catch (HttpServerErrorException e) {
+            spamStatus = SpamStatus.NO_SPAM;
+        }
 
         if (score == null) {
             score = 0.0;

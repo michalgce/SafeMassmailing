@@ -24,7 +24,12 @@ public class BayessTest implements SpamTest {
         String interceptedMessage = GreenMailUtil.getWholeMessage(mimeMessage);
         String plainMessage = null;
         try {
-            plainMessage = "Subject: " + mimeMessage.getSubject().toString() + "\n" + mimeMessage.getContent().toString();
+            String subject = mimeMessage.getSubject();
+            if (subject == null) {
+                subject = "";
+            }
+
+            plainMessage = "Subject: " + subject + "\n" + mimeMessage.getContent().toString();
         } catch (MessagingException e) {
             e.printStackTrace();
         } catch (IOException e) {

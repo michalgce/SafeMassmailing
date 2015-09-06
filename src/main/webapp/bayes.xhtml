@@ -7,11 +7,21 @@
         >
 <ui:define name="content">
     <h:form>
+        <p:commandButton actionListener="#{experimentsService.checkAllEfficiencyOfSpams}" value="Check ALL efficensy" />
+        <br/>
         <p:commandButton actionListener="#{experimentsService.checkEfficiencyOfSpams}" value="Check spam efficensy" />
         <br/>
-        <p:commandButton actionListener="#{experimentsService.checkEfficiencyOfHams}" value="Check spam efficensy" />
+        <p:commandButton actionListener="#{experimentsService.checkEfficiencyOfHams}" value="Check ham efficensy" />
         <br/>
         <p:commandButton actionListener="#{experimentsService.testHowManyEmailCanBeSendFromHostings}" value="Send test msg" />
+        <br/>
+        <p:commandButton actionListener="#{experimentsService.testEfficientyForCombianedTestForSpams}" value="Test by combained tests for SPAM" />
+        <br/>
+        <p:commandButton actionListener="#{experimentsService.testEfficientyForCombianedTestForHams}" value="Test by combained tests for HAM" />
+        <br/>
+        <p:commandButton actionListener="#{experimentsService.testSpeedOfSending}" value="Test speed of sending emails" />
+        <br/>
+        <p:commandButton actionListener="#{experimentsService.testSpeedOfSendingParallel}" value="Test speed of sending emails" />
     </h:form>
 </ui:define>
 </ui:composition>

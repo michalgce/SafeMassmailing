@@ -35,26 +35,26 @@
             </p:outputPanel>
             <p:outputPanel id="warningPanel" style="display: block" styleClass="alert alert-warning" rendered="#{spamAssassinService.spamStatus == 'MAYBE_SPAM'}">
                 Could be better..<br/>
-                Your message looks safty but there is a propability that it point to SPAM bucket.<br/>
+                Your message looks safety but there is a probability that it point to SPAM bucket.<br/>
                 <br/>
-                You could send this message with risky undelivery message.<br/>
+                You could send this message with risky undelivered message.<br/>
                 <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToMessage}" value="Change your title/message" />
                 <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToSend}" value="Send IT with risk" />
             </p:outputPanel>
             <p:outputPanel id="dangerPanel" style="display: block" styleClass="alert alert-danger" rendered="#{spamAssassinService.spamStatus == 'SPAM'}">
                 THIS IS SPAM!<br/>
-                Be sure if you send this campaing that it point directly to SPAM bucket.<br/>
-                YOU MUSN'T SEND THIS <br/>
+                Be sure if you send this campaign that it points directly to SPAM bucket.<br/>
+                YOU MUSTN'T SEND THIS <br/>
                 <p:commandButton styleClass="btn btn-primary" actionListener="#{campaigneService.goToMessage}" value="Change your title/message" />
             </p:outputPanel>
             <p:tabView orientation="left">
                 <p:tab title="&lt;img src='../javax.faces.resource/#{spamAssassinTest.status}.png.xhtml?ln=image'/&gt; SpamAssasin Test">
                     <h3>Spam points: <h:outputText id="score" value="#{spamAssassinService.spamAssassinResponseDto.score}" /></h3>
-                    Raport: <br/>
+                    Report: <br/>
                     <h:outputText id="report" value="#{spamAssassinService.spamAssassinResponseDto.report}" styleClass="preformatted" />
                 </p:tab>
                 <p:tab title="&lt;img src='../javax.faces.resource/#{bayessTest.status}.png.xhtml?ln=image'/&gt; Bayess Naive Test">
-                    Bayess Naive Test
+                    Bayes Naive Test
                     Test result : #{bayessTest.isThisSpam}
                 </p:tab>
                 <p:tab title="&lt;img src='../javax.faces.resource/#{gmailTest.status}.png.xhtml?ln=image'/&gt; Gmail Spam Test">

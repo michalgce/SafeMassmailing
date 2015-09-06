@@ -101,9 +101,12 @@ public class MessageService {
         }
 
         try {
+            long check3 = System.currentTimeMillis();
             javaMailSender.send(mimeMessage);
+            long check4 = System.currentTimeMillis();
+            System.out.println("Wysyłanie trwało: " + ((check4 - check3) / 1000));
         } catch (MailException me) {
-            System.out.println();
+            me.printStackTrace();
         }
     }
 
